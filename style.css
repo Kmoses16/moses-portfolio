@@ -1,0 +1,1268 @@
+/* --- Global Styles & Reset --- */
+:root {
+    --bg-color: #ffffff;      /* Black Background */
+    --text-color: #000000;    /* White Text */
+    --accent-color: #880ea6;  /* Neon Green */
+    --dark-grey: #000000;     /* Darker Grey for details */
+    --max-width: 1200px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    /* Change font-family to Fira Code and keep Poppins as fallback */
+    font-family: 'Fira Code', 'Poppins', monospace; 
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* --- Navigation & Header --- */
+.main-header {
+    width: 100%;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+}
+
+.logo {
+    font-size: 1.5rem;
+    color: var(--accent-color); /* Neon Logo */
+    font-weight: 800;
+}
+
+/* --- Logo Image Styling --- */
+.logo-img {
+    height: 30px; /* Set a fixed height for the logo */
+    width: auto; /* Maintain the image's aspect ratio */
+    display: block; /* Ensure it behaves like a block element */
+}
+
+/* Optional: If the original .logo rule had extra text styling, you might adjust it: */
+.logo {
+    /* Remove text-related styles if they interfere with the image positioning, 
+       but keep the font-weight for overall alignment if needed. */
+    font-size: 0; /* Ensures no leftover text space if any exists */
+    font-weight: 800; /* Keep high font-weight for alignment/flow */
+}
+
+.main-nav ul {
+    list-style: none;
+    display: flex;
+}
+
+.main-nav li a {
+    text-decoration: none;
+    color: var(--text-color);
+    margin-left: 30px;
+    font-size: 1rem;
+    transition: color 0.3s;
+}
+
+.main-nav li a:hover {
+    color: var(--accent-color); /* Neon hover effect */
+}
+
+/* --- Hero Section Layout (Desktop/Mobile) --- */
+/* --- Hero Section Layout (Desktop/Mobile) - ADJUSTED --- */
+.hero-section {
+    max-width: var(--max-width);
+    /* Change the margin: top right/left bottom; */
+    /* Reduce the top margin from 80px to a smaller value (e.g., 40px or 50px) */
+    margin: 40px auto; 
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+.hero-content {
+    flex: 1; /* Takes up equal space initially */
+    max-width: 50%;
+}
+
+.hero-image {
+    flex: 1; /* Takes up equal space initially */
+    text-align: center;
+    position: relative;
+    max-width: 50%;
+}
+
+/* --- Image with Neon Glow --- */
+/* --- Image Styling (Polygon Art) --- */
+.hero-image img {
+    width: 100%;
+    max-width: 500px; /* Reset to a standard max-width */
+    height: auto;
+    display: block;
+    object-fit: cover;
+    /* Ensure all previous circular/glow effects are removed */
+    border-radius: 0; 
+    box-shadow: none; 
+    border: none; 
+    filter: none; 
+    transform: none; 
+}
+
+/* --- Hero Text Styles --- */
+.greeting {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+    margin-left: 0.5ch;
+}
+
+.title {
+    font-size: 3.3rem;
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 20px;
+}
+
+.accent-text {
+    color: var(--accent-color); /* Applies neon green to specific words */
+}
+
+.description {
+    font-size: 1rem;
+    color: #000000;
+    margin-bottom: 30px;
+    max-width: 1600px;
+}
+
+/* --- Social Icon Styles --- */
+.social-links {
+    display: flex;
+    gap: 15px; /* Space between the circular icons */
+    margin-bottom: 40px;
+}
+
+.social-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background-color: transparent;
+    border: 2px solid var(--accent-color); /* Neon green ring */
+    color: var(--accent-color);
+    font-size: 1.2rem;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.social-icon:hover {
+    background-color: var(--accent-color); /* Solid neon fill on hover */
+    color: var(--bg-color); /* Black icon on hover */
+}
+
+/* --- Action Button Styles --- */
+.action-buttons {
+    display: flex;
+    gap: 20px;
+}
+
+.btn {
+    text-decoration: none;
+    padding: 12px 30px;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: background-color 0.3s, color 0.3s, border 0.3s;
+    text-align: center;
+    min-width: 120px;
+}
+
+.btn-primary { /* The 'Hire' Button */
+    background-color: var(--accent-color);
+    color: var(--bg-color); /* Black text on neon green */
+    border: none;
+}
+
+.btn-secondary { /* The 'Contact' Button */
+    background-color: transparent;
+    color: var(--text-color);
+    border: 2px solid var(--text-color); /* White border */
+}
+
+.btn-primary:hover {
+    background-color: #d132f5; /* Slightly darker neon on hover */
+}
+
+.btn-secondary:hover {
+    border-color: var(--accent-color);
+    color: var(--accent-color); /* Neon text on hover */
+}
+
+
+/* --- R E S P O N S I V E   D E S I G N (Mobile View) --- */
+
+@media (max-width: 900px) {
+    /* Adjusts the header for smaller screens */
+    .main-header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding-bottom: 0;
+    }
+    
+    .main-nav ul {
+        width: 100%;
+        justify-content: space-between;
+        padding: 10px 0;
+    }
+    
+    .main-nav li a {
+        margin-left: 0;
+        margin-right: 15px;
+    }
+
+    /* Stacks the Hero content and Image */
+    .hero-section {
+        flex-direction: column; /* Stacks the children vertically */
+        margin-top: 50px;
+    }
+
+    /* Content takes full width on mobile */
+    .hero-content, 
+    .hero-image {
+        max-width: 100%;
+        text-align: center;
+        margin-bottom: 40px; /* Space between text and image */
+    }
+
+    /* Centers the text elements */
+    .greeting, .title {
+        text-align: center;
+    }
+
+    /* Centers the description */
+    .description {
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    /* Centers the social links and buttons */
+    .social-links,
+    .action-buttons {
+        justify-content: center;
+    }
+
+    /* Adjusts font sizes to prevent overflow on small screens */
+    .title {
+        font-size: 3rem; 
+    }
+}
+
+
+@media (max-width: 500px) {
+    /* For very small phones, reduce title size further */
+    .title {
+        font-size: 2.5rem; 
+    }
+
+    /* Stack the action buttons if the screen is very small */
+    .action-buttons {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .btn {
+        width: 100%;
+    }
+}
+
+/* ==================================== */
+/* --- ABOUT ME SECTION STYLING --- */
+/* ==================================== */
+
+.about-section {
+    max-width: var(--max-width);
+    margin: 100px auto; 
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 80px;
+}
+
+.about-content {
+    flex: 1; 
+    max-width: 50%;
+}
+
+.section-subtitle {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--text-color); 
+    margin-bottom: 5px;
+}
+
+.section-title {
+    font-size: 3rem;
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 25px;
+}
+
+.about-description {
+    font-size: 1rem;
+    color: #444444; /* Slightly softer black for readability */
+    margin-bottom: 20px;
+}
+
+
+/* --- Image & Circular Glow Effect --- */
+
+/* --- Image & Neon Outline Effect --- */
+/* --- Image & Neon Outline Effect (Glow Filter) --- */
+.about-image {
+    flex: 1; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 50%;
+}
+
+.image-container {
+    /* Container remains neutral, allowing image to dictate shape */
+    background-color: transparent; 
+    box-shadow: none; 
+    position: relative;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image-container img {
+    /* Adjust image to fit within the section, retaining its aspect ratio */
+    width: 100%; 
+    max-width: 400px; 
+    height: auto;
+    object-fit: contain;
+    display: block;
+    
+    /* REMOVING ALL BORDERS AND BOX-SHADOWS */
+    border: none;
+    box-shadow: none;
+    
+    /* APPLYING NEON GLOW DIRECTLY TO THE IMAGE PIXELS */
+    /* Syntax: drop-shadow(offset-x offset-y blur-radius color) */
+    filter: 
+        drop-shadow(0 0 3px var(--accent-color)) 
+        drop-shadow(0 0 3px var(--accent-color)) 
+        drop-shadow(0 0 15px rgba(136, 14, 166, 0.6)); /* Widest, softest glow */
+}
+
+@media (max-width: 500px) {
+    .image-container {
+        width: 100%;
+        height: auto;
+    }
+}
+
+
+/* --- Responsive Adjustments for About Section --- */
+
+@media (max-width: 900px) {
+    .about-section {
+        flex-direction: column-reverse; /* Puts image above content on mobile */
+        margin-top: 50px;
+        gap: 40px;
+    }
+
+    .about-content, 
+    .about-image {
+        max-width: 100%;
+        text-align: center;
+    }
+    
+    /* Center text elements */
+    .section-subtitle, 
+    .section-title {
+        text-align: center;
+    }
+
+    .about-description {
+        text-align: left;
+        padding: 0 10px;
+    }
+}
+
+@media (max-width: 500px) {
+    .image-container {
+        width: 250px; /* Smaller circle on smaller devices */
+        height: 250px;
+    }
+    
+    .section-title {
+        font-size: 2.5rem;
+    }
+}
+
+/* ==================================== */
+/* --- EXPERTISE (Skills) SECTION STYLING --- */
+/* ==================================== */
+
+/* ==================================== */
+/* --- EXPERTISE (Skills) SECTION STYLING --- */
+/* ==================================== */
+
+.expertise-section {
+    max-width: var(--max-width);
+    /* Change the large vertical margin */
+    margin: 50px auto; 
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    /* REMOVED: min-height: 80vh; 
+       This was forcing a large empty space below the content */
+    padding-bottom: 80px; /* Add some padding below the content */
+    background-color: var(--bg-color); 
+}
+
+.expertise-container {
+    width: 100%;
+    max-width: 900px; /* Size constraint for the graphic */
+    height: auto;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* --- Central Image and Prompt --- */
+.central-image-container {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer; /* Indicates it's interactive */
+}
+
+.central-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    user-select: none; /* Prevents text selection on image */
+}
+
+/* Base style for both prompts - ensures they disappear on click */
+.click-prompt {
+    position: absolute;
+    background-color: transparent; 
+    box-shadow: none; 
+    text-align: center;
+    width: 100%; /* Ensures proper centering */
+    transition: opacity 0.3s;
+    padding: 0;
+}
+
+/* 1. TECHNICAL EXPERTISE (Top, Large, Purple) */
+.prompt-top {
+    top: -25px; /* Position high above the figure */
+    color: var(--accent-color); 
+    font-size: 2.5rem; 
+    font-weight: 800; 
+    /* Ensures the text is on top of everything else */
+    z-index: 10; 
+}
+
+/* 2. Tap my Laptop (Bottom, Small, Black, Bold) */
+.prompt-bottom {
+    bottom: -5px; /* Position below the laptop */
+    color: var(--text-color); 
+    font-size: 1rem; 
+    font-weight: bold; 
+}
+
+/* --- Responsive Adjustments for Positioning --- */
+
+@media (max-width: 900px) {
+    
+    /* Top Text Adjustment */
+    .prompt-top { 
+        top: -50px; 
+        font-size: 1.8rem;
+    }
+
+    /* Bottom Text Adjustment */
+    .prompt-bottom { 
+        bottom: -20px; 
+        font-size: 0.9rem; 
+    }
+}
+
+@media (max-width: 500px) {
+    
+    /* Top Text Adjustment */
+    .prompt-top { 
+        top: -30px; 
+        font-size: 1.3rem; 
+    }
+
+    /* Bottom Text Adjustment */
+    .prompt-bottom { 
+        bottom: -15px; 
+        font-size: 0.8rem; 
+    }
+}
+
+/* REMOVE .prompt-small-text and .prompt-large-text blocks entirely */
+
+/* New: Smaller Black Text (BOLDED) */
+.prompt-small-text {
+    color: var(--text-color); /* Black */
+    font-size: 1rem; /* Smaller size */
+    font-weight: bold; /* CHANGED: Makes the text bold */
+    display: inline-block;
+    margin-right: 5px; /* Spacing between the two parts */
+}
+
+/* New: Larger Purple Text */
+.prompt-large-text {
+    color: var(--accent-color); /* Purple/Neon Accent Color */
+    font-size: 2.5rem; /* Large size, like the 'My Background' title */
+    font-weight: 800; /* Extra bold */
+    display: inline-block;
+}
+
+/* --- Skill Icons General Styling --- */
+.skill-icon {
+    position: absolute;
+    width: 70px; /* Standard icon size */
+    height: auto;
+    opacity: 0; /* START: Initially hidden */
+    transform: scale(0.8);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+    pointer-events: none; /* Make sure icons don't block clicks */
+}
+
+.skill-icon img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Class to make icons visible on click */
+.expertise-active .skill-icon {
+    opacity: 1;
+    transform: scale(1);
+    pointer-events: auto;
+}
+
+/* Class to hide prompt on click */
+.expertise-active .click-prompt {
+    opacity: 0;
+}
+
+/* ==================================== */
+/* --- EXPERTISE (Skills) SECTION STYLING --- */
+/* ==================================== */
+
+/* ... (rest of the expertise-section styles remain the same) ... */
+
+/* --- Skill Icons General Styling --- */
+.skill-icon {
+    position: absolute;
+    width: 120px; /* INCREASED Standard icon size (from 100px) */
+    height: auto;
+    opacity: 0; 
+    transform: scale(0.8);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+    pointer-events: none;
+}
+
+/* ... (rest of the general skill-icon styles remain the same) ... */
+
+/* --- Skill Icon Positioning (FINAL ADJUSTMENTS FOR MAXIMUM SPACING & NO OVERLAP) --- */
+
+/* Base icon width increased slightly for key tools */
+.skill-icon {
+    position: absolute;
+    width: 120px; 
+    height: auto;
+    opacity: 0; 
+    transform: scale(0.8);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+    pointer-events: none;
+}
+
+/* Top Row (Increased Size for Python/SQL) */
+.python-icon { top: 20px; left: -25%; width: 150px; } /* Increased Python size */
+.sql-icon { top: 20px; left: 12%; width: 150px; } /* Increased SQL size */
+.nessus-icon { top: 50px; right: 9%; width: 180px; }
+.aws-icon { top: 10px; right: -20%; width: 130px; }
+
+/* Mid-Row (Adjusted Linux size for better balance) */
+.cisco-icon { top: 300px; left: -29%; width: 190px; } 
+.linux-icon { top: 175px; left: -6%; width: 120px; } /* Increased Linux size */
+.wireshark-icon { top: 185px; right: -5%; width: 150px; } 
+
+/* Right Side Adjustments to Prevent Overlap */
+.burp-icon { top: 250px; right: -26%; width: 150px; } /* Moved up (from 350px) and slightly inward to clear SAP */
+.splunk-icon { bottom: 120px; right: 8%; width: 150px; } /* Moved slightly left (from 5%) to clear Burp/SAP */
+
+/* Lower Rows */
+.metasploit-icon { bottom: 255px; left: 15%; width: 125px; } 
+.azure-icon { bottom: 100px; left: 0; width: 155px; } 
+.sap-icon { bottom: 100px; right: -15%; width: 150px; }
+
+
+/* --- RESPONSIVE ADJUSTMENTS (Keeping these consistent) --- */
+
+@media (max-width: 900px) {
+    .expertise-section {
+        margin: 50px auto;
+        min-height: 50vh;
+    }
+    
+    /* Adjust icon size and general position on tablet/mobile */
+    .skill-icon { width: 80px; } 
+    
+    .python-icon { top: 20px; left: 0%; width: 90px; }
+    .sql-icon { top: 0; left: 30%; width: 90px; }
+    .nessus-icon { top: 20px; left: 60%; width: 70px; }
+    .aws-icon { top: 0; right: 0%; width: 85px; }
+    
+    .cisco-icon { top: 150px; left: -10px; width: 80px; } 
+    .linux-icon { top: 140px; left: 15%; width: 80px; } /* Adjusted size */
+    .wireshark-icon { top: 140px; right: 15%; width: 70px; } 
+    .burp-icon { top: 250px; right: 0; width: 75px; } /* Adjusted position for tablet overlap fix */
+
+    .metasploit-icon { bottom: 100px; left: 10%; width: 100px; } 
+    .splunk-icon { bottom: 80px; right: 10%; width: 100px; } /* Adjusted position for tablet overlap fix */
+
+    .azure-icon { bottom: 0; left: 0%; width: 80px; }
+    .sap-icon { bottom: 0; right: 0%; width: 80px; }
+    
+    .click-prompt { 
+        top: -50px; 
+        white-space: normal; /* Allow wrap on tablet */
+    }
+
+    .prompt-small-text {
+        font-size: 0.9rem;
+    }
+
+    .prompt-large-text {
+        font-size: 1.8rem;
+    }
+}
+
+@media (max-width: 500px) {
+    .skill-icon { width: 55px; } 
+    
+    .python-icon { top: -10px; left: -5%; width: 65px; }
+    .sql-icon { top: -20px; left: 30%; width: 65px; }
+    .nessus-icon { top: -10px; left: 65%; width: 50px; }
+    .aws-icon { top: -20px; right: -5%; width: 60px; }
+    
+    .cisco-icon { top: 80px; left: -15px; width: 65px; } 
+    .linux-icon { top: 90px; left: 10%; width: 60px; } 
+    .wireshark-icon { top: 90px; right: 5%; width: 50px; } 
+    .burp-icon { top: 180px; right: -10px; width: 55px; }
+    
+    .metasploit-icon { bottom: 60px; left: 10%; width: 70px; }
+    .splunk-icon { bottom: 50px; right: 5%; width: 70px; } /* Adjusted position */
+
+    .azure-icon { bottom: 0; left: 0%; width: 60px; }
+    .sap-icon { bottom: 0; right: 0%; width: 60px; }
+
+    .click-prompt { 
+        top: -30px; 
+    }
+
+    .prompt-small-text {
+        font-size: 0.8rem;
+    }
+
+    .prompt-large-text {
+        font-size: 1.3rem;
+    }
+}
+
+/* ==================================== */
+/* --- EXPERIENCE (Timeline) SECTION STYLING --- */
+/* ==================================== */
+
+.experience-section {
+    max-width: var(--max-width);
+    margin: 50px auto; 
+    padding: 20px;
+    text-align: center;
+}
+
+.experience-title {
+    color: var(--text-color); /* Black */
+    text-transform: uppercase;
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 60px;
+}
+
+/* --- Timeline Container --- */
+.timeline {
+    position: relative;
+    max-width: 90%;
+    margin: 0 auto;
+    padding: 0;
+    /* FIX: Clear floats to ensure the container wraps around content */
+    overflow: hidden; 
+    /* The height of the timeline will be determined by the content now */
+}
+
+/* The vertical connecting line (FIXED: ensures it spans the height of the timeline) */
+.timeline::after {
+    content: '';
+    position: absolute;
+    width: 3px;
+    background-color: var(--accent-color); /* Purple line */
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -1px;
+    z-index: 0;
+}
+
+/* --- Timeline Items (Boxes) --- */
+.timeline-item {
+    padding: 10px 40px; 
+    position: relative;
+    background-color: inherit;
+    width: 50%;
+    text-align: left;
+    /* Crucial for alternating: it must clear the *opposite* float from the previous item */
+}
+
+/* --- Left Side Items (Pushed to the left) --- */
+.timeline-item-left {
+    float: left; /* Pushes item to the left side */
+    clear: right; /* Ensures it starts below any previous right-floated item */
+    padding-right: 40px; /* Space between box and line */
+    padding-left: 0;
+}
+
+/* --- Right Side Items (Pushed to the right) --- */
+.timeline-item-right {
+    float: right; /* Pushes item to the right side */
+    clear: left; /* Ensures it starts below any previous left-floated item */
+    padding-left: 40px; /* Space between box and line */
+    padding-right: 0;
+}
+
+/* Timeline content box styling (purple block) */
+.timeline-content {
+    padding: 20px 30px;
+    background-color: var(--accent-color); /* Purple background */
+    color: var(--bg-color); /* White text */
+    border-radius: 6px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 1; /* Keep content above the line */
+}
+
+.timeline-content h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+}
+
+.timeline-content ul {
+    list-style: none; /* Remove default bullets */
+    padding-left: 0;
+}
+
+.timeline-content ul li {
+    margin-bottom: 8px;
+    position: relative;
+}
+
+/* Custom bullet points */
+.timeline-content ul li::before {
+    content: '•'; /* Use a custom bullet character */
+    color: var(--bg-color); 
+    font-weight: bold; 
+    display: inline-block; 
+    width: 1em; 
+    margin-left: -1em; 
+}
+
+
+/* --- Dot Marker (Connecting the box to the line) --- */
+.timeline-item::after {
+    content: '';
+    position: absolute;
+    width: 12px;
+    height: 16px;
+    background-color: var(--bg-color); /* White dot background */
+    border: 3px solid var(--accent-color); /* Purple ring */
+    top: 30px;
+    border-radius: 50%;
+    z-index: 2;
+}
+
+/* Position dot for left items */
+.timeline-item-left::after {
+    right: -8px; /* Half of the dot width, aligned to the center line */
+}
+
+/* Position dot for right items */
+.timeline-item-right::after {
+    left: -8px; /* Half of the dot width, aligned to the center line */
+}
+
+/* --- Arrow Styling (Pointing to the line) --- */
+/* Arrow for left items */
+.timeline-item-left .timeline-content::after {
+    content: " ";
+    position: absolute;
+    top: 35px;
+    right: -10px;
+    border-width: 10px;
+    border-style: solid;
+    border-color: transparent transparent transparent var(--accent-color); /* Arrow pointing right */
+}
+
+/* Arrow for right items */
+.timeline-item-right .timeline-content::after {
+    content: " ";
+    position: absolute;
+    top: 35px;
+    left: -10px;
+    border-width: 10px;
+    border-style: solid;
+    border-color: transparent var(--accent-color) transparent transparent; /* Arrow pointing left */
+}
+
+
+/* ==================================== */
+/* --- Responsive Timeline Design --- */
+/* ==================================== */
+
+@media (max-width: 768px) {
+    
+    .experience-title {
+        font-size: 2.5rem;
+    }
+
+    /* FIX: The timeline bar should move to the left */
+    .timeline::after {
+        left: 31px;
+    }
+
+    /* FIX: Remove floats and stack all items on the right side of the bar */
+    .timeline-item-left,
+    .timeline-item-right {
+        float: none; /* Remove float */
+        width: 100%;
+        padding-left: 70px; /* Space for the bar and dot */
+        padding-right: 25px;
+    }
+    
+    /* Ensure the dot is positioned on the left for all items */
+    .timeline-item-left::after,
+    .timeline-item-right::after {
+        left: 23px; /* Dot is aligned with the bar (31px - 8px dot offset) */
+        right: auto;
+    }
+
+    /* Combine arrow styling for mobile (all point left) */
+    .timeline-item .timeline-content::after {
+        content: " ";
+        position: absolute;
+        top: 35px;
+        left: -10px; /* Position the arrow to touch the line */
+        right: auto;
+        border-width: 10px;
+        border-style: solid;
+        border-color: transparent var(--accent-color) transparent transparent; /* Arrow pointing left */
+    }
+}
+
+/* ==================================== */
+/* -------- PROJECTS SECTION -------- */
+/* ==================================== */
+
+.projects-section {
+    max-width: var(--max-width);
+    margin: 80px auto;
+    padding: 20px;
+    text-align: center;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+
+/* Project Card */
+.project-card {
+    background: #f9f6fb;
+    border-radius: 12px;
+    padding: 20px;
+    text-align: left;
+    position: relative;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 40px rgba(115, 30, 172, 0.912);
+}
+
+/* Status Badge */
+.project-status {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background: var(--accent-color);
+    color: #fff;
+    font-size: 0.7rem;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-weight: 600;
+}
+
+/* Image */
+.project-card img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+/* Title */
+.project-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+/* Tags */
+.project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 12px;
+}
+
+.project-tags span {
+    background: #eee;
+    padding: 4px 8px;
+    font-size: 0.7rem;
+    border-radius: 5px;
+    font-weight: 600;
+}
+
+/* Description */
+.project-card p {
+    font-size: 0.9rem;
+    color: #444;
+    margin-bottom: 15px;
+}
+
+/* Footer */
+.project-footer {
+    font-size: 0.8rem;
+    color: var(--accent-color);
+    font-weight: 700;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .project-card img {
+        height: 140px;
+    }
+}
+
+/* ==================================== */
+/* --- CONTACT SECTION STYLING (Two-Column Layout) --- */
+/* ==================================== */
+
+.contact-section {
+    max-width: var(--max-width);
+    margin: 100px auto; 
+    padding: 20px;
+}
+
+.contact-main-container {
+    display: flex;
+    gap: 80px;
+    align-items: flex-start; /* Aligns content to the top */
+    padding: 0 40px; /* Internal padding for the whole container */
+}
+
+/* --- Left Column: Text Info --- */
+
+.contact-info-column {
+    flex: 1; /* Takes up approximately half the space */
+    max-width: 400px;
+    text-align: left;
+}
+
+.contact-heading {
+    font-size: 3.5rem; /* Large title size */
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 10px;
+    color: var(--text-color); /* Black */
+}
+
+.contact-heading .accent-text {
+    color: var(--accent-color); /* Purple */
+}
+
+.contact-greeting {
+    font-size: 1.2rem;
+    font-weight: 400;
+    margin-bottom: 30px;
+    color: var(--text-color);
+}
+
+.contact-text {
+    font-size: 1rem;
+    color: #444444;
+    margin-bottom: 40px;
+    line-height: 1.5;
+}
+
+.email-link-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.email-icon {
+    font-size: 1.5rem;
+    color: var(--text-color); /* Black icon */
+}
+
+.contact-email {
+    font-size: 1rem;
+    color: var(--text-color); /* Black text */
+    text-decoration: none;
+    font-weight: 600;
+}
+.contact-email:hover {
+    color: var(--accent-color);
+}
+
+
+/* --- Right Column: Form Styling --- */
+
+.contact-form-column {
+    flex: 1.5; /* Takes up slightly more space for the form */
+    width: 100%;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.form-row {
+    display: flex;
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.half-width {
+    width: 50%; /* For First Name / Last Name fields */
+}
+
+.full-width {
+    width: 100%;
+}
+
+.form-group label {
+    font-weight: 400;
+    margin-bottom: 5px;
+    color: var(--text-color);
+    font-size: 1rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+    padding: 12px;
+    border: 1px solid var(--text-color); /* Black border for input fields */
+    border-radius: 0; /* No border radius */
+    font-family: inherit;
+    font-size: 1rem;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    background-color: transparent; /* Transparent background */
+    color: var(--text-color);
+    width: 100%; /* Ensures inputs fill their container */
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 2px rgba(136, 14, 166, 0.2);
+    outline: none;
+}
+
+/* Submit Button Style */
+.submit-button {
+    background-color: var(--accent-color); /* Purple fill */
+    color: var(--bg-color); /* White text */
+    padding: 12px 30px;
+    border: none;
+    border-radius: 5px; /* Slight roundness on button */
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    align-self: flex-end; /* Pushes the button to the right/end of the form */
+    margin-top: 10px;
+}
+
+.submit-button:hover {
+    background-color: #a448bc;
+    transform: translateY(-1px);
+}
+
+
+/* --- Responsive Adjustments for Mobile --- */
+
+@media (max-width: 900px) {
+    .contact-main-container {
+        flex-direction: column; /* Stacks the two columns */
+        gap: 40px;
+        padding: 0 20px;
+    }
+    
+    .contact-info-column,
+    .contact-form-column {
+        max-width: 100%;
+        width: 100%;
+    }
+    
+    .contact-heading {
+        font-size: 3rem;
+    }
+    
+    /* Ensure form fields stack nicely */
+    .form-row {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .half-width {
+        width: 100%; /* Makes first and last name full width on mobile */
+    }
+}
+
+/* --- Skill Icons (Initial Hidden State) --- */
+.skill-icon {
+    position: absolute;
+    width: 140px; /* <-- ENLARGED SIZE */
+    height: 130px; /* <-- ENLARGED SIZE */
+    opacity: 0; 
+    transition: all 0.5s ease-out;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.skill-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* ==================================== */
+/* --- HOME SECTION TYPEWRITER EFFECT --- */
+/* ==================================== */
+
+/* Apply the hacker font style to the entire title */
+.hero-content h2.title {
+    font-family: 'Fira Code', monospace;
+    line-height: 1.2;
+}
+
+/* Style the specific text for the typewriter effect */
+.hero-content h2.title .accent-text {
+    display: inline-block; 
+    overflow: hidden;      
+    white-space: nowrap;   
+
+    vertical-align: top;
+
+    /* *** FINAL FIX: Increased width to 22ch to guarantee space for 't' + cursor *** */
+    width: 22ch; 
+    
+    border-right: 3px solid transparent; 
+    
+    animation: 
+        typing 6s steps(20, end) forwards, 
+        blink-caret 0.75s step-end infinite;
+}
+
+/* --- Typewriter/Blinking Keyframes --- */
+@keyframes typing {
+  from { width: 0 }
+  /* *** FINAL FIX: Keyframe must end at the same 22ch width *** */
+  to { width: 22ch } 
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-right-color: var(--accent-color); } /* Blinks the cursor in your accent color */
+}
+
+/* Optional: Ensure intro text matches new font */
+.title-intro {
+    font-family: 'Fira Code', monospace;
+    font-weight: 500;
+}
+
+/* ==================================== */
+/* --- MATRIX MOUSE TRAIL EFFECT --- */
+/* ==================================== */
+
+#matrix-cursor-trail {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Allows clicks to pass through to elements below */
+    overflow: hidden;
+    z-index: 9999; /* Ensure it is above all other content */
+    opacity: 0.8; /* Slight transparency for a better overlay effect */
+}
+
+.matrix-char {
+    position: absolute;
+    /* Use your accent color for the classic Matrix green/purple look */
+    color: var(--accent-color); 
+    font-family: 'Fira Code', monospace; 
+    font-size: 1.2rem;
+    line-height: 1;
+    pointer-events: none;
+    /* Animation for the character fading out */
+    opacity: 1;
+    transition: opacity 1s linear, transform 1s ease-out;
+    transform: translateY(0);
+}
