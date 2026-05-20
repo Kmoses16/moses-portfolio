@@ -1266,3 +1266,8 @@ body {
     transition: opacity 1s linear, transform 1s ease-out;
     transform: translateY(0);
 }
+
+.projects-grid a {
+    text-decoration: none;
+    color: inherit;
+}
