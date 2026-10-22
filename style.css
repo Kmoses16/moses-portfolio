@@ -904,9 +904,28 @@ body {
 
 .projects-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 30px;
+    grid-template-columns: repeat(4, 1fr);   /* 4 equal cards side by side */
+    gap: 24px;
+    align-items: stretch;                    /* every card as tall as the tallest */
+    grid-auto-rows: 1fr;                     /* ...and every row the same height */
     margin-top: 50px;
+}
+
+/* Card 1 sits inside a link: make the link a flex box so the card fills it */
+.projects-grid > a {
+    display: flex;
+}
+
+.projects-grid > a > .project-card {
+    flex: 1;
+}
+
+@media (max-width: 1100px) {
+    .projects-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 600px) {
+    .projects-grid { grid-template-columns: 1fr; }
 }
 
 /* Project Card */
@@ -916,6 +935,8 @@ body {
     padding: 20px;
     text-align: left;
     position: relative;
+    display: flex;              /* lets the footer sit at the bottom of every card */
+    flex-direction: column;
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -982,6 +1003,7 @@ body {
     font-size: 0.8rem;
     color: var(--accent-color);
     font-weight: 700;
+    margin-top: auto;           /* pins the footer to the bottom so all cards line up */
 }
 
 /* Responsive */
