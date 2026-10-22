@@ -904,32 +904,30 @@ body {
 
 .projects-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);   /* 4 equal cards side by side */
+    grid-template-columns: repeat(4, minmax(0, 1fr));   /* 4 strictly equal cards side by side */
     gap: 24px;
     align-items: stretch;                    /* every card as tall as the tallest */
     grid-auto-rows: 1fr;                     /* ...and every row the same height */
     margin-top: 50px;
 }
 
-/* Card 1 sits inside a link: make the link a flex box so the card fills it */
+/* A card wrapped in a link: let the card itself be the grid item (the link stays clickable) */
 .projects-grid > a {
-    display: flex;
-}
-
-.projects-grid > a > .project-card {
-    flex: 1;
+    display: contents;
 }
 
 @media (max-width: 1100px) {
-    .projects-grid { grid-template-columns: repeat(2, 1fr); }
+    .projects-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
 @media (max-width: 600px) {
-    .projects-grid { grid-template-columns: 1fr; }
+    .projects-grid { grid-template-columns: minmax(0, 1fr); }
 }
 
 /* Project Card */
 .project-card {
+    min-width: 0;
+    overflow-wrap: anywhere;
     background: #f9f6fb;
     border-radius: 12px;
     padding: 20px;
